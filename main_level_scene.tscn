@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cfq7s75nrktqf" path="res://Level/Room.tscn" id="1_u4cln"]
 [ext_resource type="PackedScene" uid="uid://bc6p878gebto3" path="res://Logic/Characters/player.tscn" id="1_x5mq3"]
 [ext_resource type="PackedScene" uid="uid://cdjhmlhqk6rgo" path="res://Logic/Interaction/interact_area.tscn" id="3_6viib"]
-[ext_resource type="AudioStream" uid="uid://di1kg0e0qqni5" path="res://Assets/Audio/Music/alaborg_villages_new.wav" id="3_ju1cp"]
+[ext_resource type="AudioStream" uid="uid://di1kg0e0qqni5" path="res://Assets/Audio/Music/testmusic.wav" id="3_ju1cp"]
 [ext_resource type="PackedScene" uid="uid://b8mmcuyg0cgiv" path="res://Logic/Characters/NPC.tscn" id="4_8ovxh"]
 
 [node name="MainLevelScene" type="Node"]

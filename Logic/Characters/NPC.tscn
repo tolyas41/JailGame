@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dou33cm7y5y6" path="res://Logic/Characters/npc.gd" id="1_jjke6"]
 [ext_resource type="Texture2D" uid="uid://de6qutn81esk8" path="res://Assets/Characters/Prototype_Character/prototype_character.png" id="2_lmsoi"]
 [ext_resource type="Script" uid="uid://cvfiha7lsirk8" path="res://Logic/Interaction/interaction.gd" id="3_ksbtn"]
-[ext_resource type="AudioStream" uid="uid://bb81sdr1nqnec" path="res://Assets/Audio/hero_mega_shot_load1.wav" id="4_jjke6"]
+[ext_resource type="AudioStream" uid="uid://bb81sdr1nqnec" path="res://Assets/Audio/testshot.wav" id="4_jjke6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k85c"]
 size = Vector2(12, 16)

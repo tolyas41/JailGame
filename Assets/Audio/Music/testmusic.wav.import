@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://di1kg0e0qqni5"
-path="res://.godot/imported/alaborg_villages_new.wav-5daebb32032c31680dd3026e6d643748.sample"
+path="res://.godot/imported/testmusic.wav-533f6b6c4b4e8c691dddc5a7da431999.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/Music/alaborg_villages_new.wav"
-dest_files=["res://.godot/imported/alaborg_villages_new.wav-5daebb32032c31680dd3026e6d643748.sample"]
+source_file="res://Assets/Audio/Music/testmusic.wav"
+dest_files=["res://.godot/imported/testmusic.wav-533f6b6c4b4e8c691dddc5a7da431999.sample"]
 
 [params]
 

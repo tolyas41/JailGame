@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bb81sdr1nqnec"
-path="res://.godot/imported/hero_mega_shot_load1.wav-ce6f3450013165e74602c03877815f96.sample"
+path="res://.godot/imported/testshot.wav-ed8d148a2084a6d6d8a136e5e367a45c.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/hero_mega_shot_load1.wav"
-dest_files=["res://.godot/imported/hero_mega_shot_load1.wav-ce6f3450013165e74602c03877815f96.sample"]
+source_file="res://Assets/Audio/testshot.wav"
+dest_files=["res://.godot/imported/testshot.wav-ed8d148a2084a6d6d8a136e5e367a45c.sample"]
 
 [params]
 
