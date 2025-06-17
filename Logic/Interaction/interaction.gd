@@ -2,36 +2,40 @@ extends CollisionObject2D
 
 signal interact_on_mouse_enter
 signal interact_on_mouse_leave
-signal on_interact
-#@export var : AnimatedSprite2D
+signal on_interact(user: Node2D)
+
 @export var InteractDistance: float = 30
 
-var isInteractPossible: bool = false
+var _IsInteractPossible: bool = false
 
 func _mouse_enter() -> void:
-	var PlayerPosition: Vector2 = get_viewport().get_camera_2d().get_parent().get_global_position()
-	var DistanceToPlayer = get_global_position().distance_to(PlayerPosition)
-	if (DistanceToPlayer < InteractDistance):
-		SetInteractPossible(true)
+	if (_is_player_close_to_interact()):
+		_set_interact_possible(true)
 	else:
-		SetInteractPossible(false)
+		_set_interact_possible(false)
 
 func _mouse_exit() -> void:
-	SetInteractPossible(false)
+	_set_interact_possible(false)
 
-func SetInteractPossible(Possible: bool):
-	if (Possible == isInteractPossible):
+func _is_player_close_to_interact() -> bool:
+	var PlayerPosition: Vector2 = GameState.current_player.get_global_position()
+	var DistanceToPlayer = get_global_position().distance_to(PlayerPosition)
+	return DistanceToPlayer < InteractDistance
+	
+
+func _set_interact_possible(Possible: bool):
+	if (Possible == _IsInteractPossible):
 		return
 	
-	isInteractPossible = Possible
-	if (isInteractPossible):
+	_IsInteractPossible = Possible
+	if (_IsInteractPossible):
 		interact_on_mouse_enter.emit()
 	else:
 		interact_on_mouse_leave.emit()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if (!isInteractPossible):
+	if (!_IsInteractPossible):
 		return
-	if (event.is_action("Interact")):
-		on_interact.emit()
+	if (event.is_action_pressed("Interact")):
+		on_interact.emit(GameState.current_player)
 	

@@ -2,6 +2,7 @@ extends Pawn
 
 func _ready() -> void:
 	$CharacterBody/Camera2D.make_current()
+	GameState.register_player(self)
 	
 func _process(delta) -> void:
 	ProcessInput()

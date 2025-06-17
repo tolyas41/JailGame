@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bc6p878gebto3"]
+[gd_scene load_steps=20 format=3 uid="uid://bc6p878gebto3"]
 
 [ext_resource type="Script" uid="uid://c21efbtcu3uqo" path="res://Logic/Characters/player.gd" id="1_6p1uj"]
 [ext_resource type="Texture2D" uid="uid://de6qutn81esk8" path="res://Assets/Characters/Prototype_Character/prototype_character.png" id="2_6p1uj"]
+[ext_resource type="Script" uid="uid://c4csoylvyn3e3" path="res://Logic/Interaction/actions.gd" id="3_iayw4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q03jh"]
 size = Vector2(12, 16)
@@ -145,6 +146,8 @@ animations = [{
 }]
 
 [node name="Player" type="Node2D"]
+z_index = 5
+z_as_relative = false
 script = ExtResource("1_6p1uj")
 metadata/_custom_type_script = "uid://d08tf8pfh1rcd"
 
@@ -163,3 +166,6 @@ position_smoothing_enabled = true
 sprite_frames = SubResource("SpriteFrames_4u3e7")
 animation = &"Idle"
 frame_progress = 0.663954
+
+[node name="Actions" type="Node" parent="."]
+script = ExtResource("3_iayw4")

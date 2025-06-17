@@ -13,11 +13,12 @@ config_version=5
 config/name="Jail"
 run/main_scene="uid://pagw5ste17r1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Textures/Icons/icon.svg"
 
 [autoload]
 
-GlobalConst="*res://GlobalConst.gd"
+GlobalConst="*res://Logic/Core/GlobalConst.gd"
+GameState="*res://Logic/Core/GameState.gd"
 
 [display]
 
