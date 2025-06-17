@@ -1,8 +1,10 @@
 extends Pawn
 
+
+
 func _ready() -> void:
-	$CharacterBody/Camera2D.make_current()
-	GameState.register_player(self)
+	get_node("../Camera2D").make_current()
+	GameState.register_player(get_parent())
 	
 func _process(delta) -> void:
 	ProcessInput()
@@ -20,11 +22,17 @@ func ProcessInput():
 	if Input.is_action_pressed(GlobalConst.cMoveLeft):
 		MoveDirection += Vector2(-Speed, 0)
 		MoveAnimName = GlobalConst.cMoveLeft
-		$CharacterBody/CharacterSprite.flip_h = true
+		CharacterSprite.flip_h = true
 	if Input.is_action_pressed(GlobalConst.cMoveRight):
 		MoveDirection += Vector2(Speed, 0)
 		MoveAnimName = GlobalConst.cMoveRight
-		$CharacterBody/CharacterSprite.flip_h = false
+		CharacterSprite.flip_h = false
+	
+	if (!MoveDirection.is_zero_approx()):
+		Move(MoveDirection)
+		Actions.InterruptAction()
+		
+	if (Actions.IsInAction()):
+		return
 
-	Move(MoveDirection)
 	PlayAnimation(MoveAnimName)

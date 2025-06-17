@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://b8mmcuyg0cgiv"]
+[gd_scene load_steps=22 format=3 uid="uid://b8mmcuyg0cgiv"]
 
 [ext_resource type="Script" uid="uid://dou33cm7y5y6" path="res://Logic/Characters/npc.gd" id="1_jjke6"]
 [ext_resource type="Texture2D" uid="uid://de6qutn81esk8" path="res://Assets/Characters/Prototype_Character/prototype_character.png" id="2_lmsoi"]
 [ext_resource type="Script" uid="uid://cvfiha7lsirk8" path="res://Logic/Interaction/interaction.gd" id="3_ksbtn"]
 [ext_resource type="AudioStream" uid="uid://bb81sdr1nqnec" path="res://Assets/Audio/testshot.wav" id="4_jjke6"]
+[ext_resource type="Script" uid="uid://c4csoylvyn3e3" path="res://Logic/Interaction/actions.gd" id="5_jneov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k85c"]
 size = Vector2(12, 16)
@@ -146,25 +147,28 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="NPC" type="Node2D"]
-script = ExtResource("1_jjke6")
-
-[node name="CharacterBody" type="CharacterBody2D" parent="."]
+[node name="CharacterBody" type="CharacterBody2D"]
 collision_layer = 5
 collision_mask = 5
 input_pickable = true
 script = ExtResource("3_ksbtn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0k85c")
 
-[node name="CharacterSprite" type="AnimatedSprite2D" parent="CharacterBody"]
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h01ja")
 animation = &"Idle"
 
 [node name="TESTAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_jjke6")
 
-[connection signal="interact_on_mouse_enter" from="CharacterBody" to="CharacterBody/CharacterSprite" method="set_modulate" binds= [Color(0.837455, 0.342212, 0.227368, 1)]]
-[connection signal="interact_on_mouse_leave" from="CharacterBody" to="CharacterBody/CharacterSprite" method="set_modulate" binds= [Color(1, 1, 1, 1)]]
-[connection signal="on_interact" from="CharacterBody" to="." method="_on_interact"]
+[node name="NPC" type="Node" parent="."]
+script = ExtResource("1_jjke6")
+
+[node name="Actions" type="Node" parent="."]
+script = ExtResource("5_jneov")
+
+[connection signal="interact_on_mouse_enter" from="." to="CharacterSprite" method="set_modulate" binds= [Color(0.837455, 0.342212, 0.227368, 1)]]
+[connection signal="interact_on_mouse_leave" from="." to="CharacterSprite" method="set_modulate" binds= [Color(1, 1, 1, 1)]]
+[connection signal="on_interact" from="." to="NPC" method="_on_interact"]
