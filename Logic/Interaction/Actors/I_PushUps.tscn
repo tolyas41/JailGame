@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://p6bu66ycup24" path="res://Assets/Textures/Tilesets/4 BigSet.png" id="3_or218"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycpot"]
-size = Vector2(15, 11)
+size = Vector2(9, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxt11"]
 atlas = ExtResource("3_or218")
@@ -21,10 +21,12 @@ input_pickable = true
 script = ExtResource("2_or218")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.5, -0.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_ycpot")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+rotation = 1.5708
 texture = SubResource("AtlasTexture_yxt11")
 
 [connection signal="interact_on_mouse_enter" from="StaticBody2D" to="Sprite2D" method="set_modulate" binds= [Color(0, 0.52549, 0, 1)]]

@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://de6qutn81esk8" path="res://Assets/Characters/Prototype_Character/prototype_character.png" id="2_6p1uj"]
 [ext_resource type="Script" uid="uid://c4csoylvyn3e3" path="res://Logic/Interaction/actions.gd" id="3_iayw4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q03jh"]
-size = Vector2(12, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yatok"]
+radius = 4.1
+height = 15.1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yatok"]
 atlas = ExtResource("2_6p1uj")
@@ -179,10 +180,10 @@ script = ExtResource("1_yatok")
 metadata/_edit_horizontal_guides_ = [16.0, -15.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_q03jh")
+shape = SubResource("CapsuleShape2D_yatok")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]

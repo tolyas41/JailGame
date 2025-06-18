@@ -7,6 +7,8 @@ var actions = {
 
 #TODO: как передать в call() параметр?
 var _action_object: Node2D
+
+var _current_action: StringName
 var _in_action: bool = false
 
 func DoAction(ActionName: StringName, ActionObject: Node2D):
@@ -22,6 +24,7 @@ func IsInAction() -> bool:
 
 func InterruptAction() -> void:
 	_in_action = false
+	_current_action = StringName()
 	
 func _action_push_ups(ActionObject: Node2D) ->void:
 	get_parent().global_position = ActionObject.global_position

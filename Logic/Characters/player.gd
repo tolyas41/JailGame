@@ -1,18 +1,22 @@
 extends Pawn
 
-
+@onready var Camera: Camera2D = get_node("../Camera2D")
 
 func _ready() -> void:
-	get_node("../Camera2D").make_current()
+	Camera.make_current()
 	GameState.register_player(get_parent())
 	
 func _process(delta) -> void:
-	ProcessInput()
+	_process_input()
 
 #INPUT
-func ProcessInput():
+func _process_input():
+	_process_movement()
+
+func _process_movement():
 	var MoveDirection = Vector2()
-	var MoveAnimName = "Idle"
+	var MoveAnimName
+	
 	if Input.is_action_pressed(GlobalConst.cMoveUp):
 		MoveDirection += Vector2(0, -Speed)
 		MoveAnimName = GlobalConst.cMoveUp
@@ -29,10 +33,9 @@ func ProcessInput():
 		CharacterSprite.flip_h = false
 	
 	if (!MoveDirection.is_zero_approx()):
-		Move(MoveDirection)
 		Actions.InterruptAction()
-		
-	if (Actions.IsInAction()):
-		return
+		Move(MoveDirection)
+		PlayAnimation(MoveAnimName)
 
-	PlayAnimation(MoveAnimName)
+	if (MoveDirection.is_zero_approx() && !Actions.IsInAction()):
+		PlayAnimation("Idle")
