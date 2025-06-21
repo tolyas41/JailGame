@@ -1,8 +1,7 @@
-extends Node2D
+extends Interactable
 
 
-#func _init() -> void:
-
-
-func _on_interact(user: Node2D) -> void:
-	user.get_node("Actions").DoAction(GlobalConst.cAction_PushUps, self)
+func interact(user: Node2D) -> void:
+	var Actions = user.get_node("Actions")
+	if (Actions):
+		Actions.DoAction(GlobalConst.cAction_PushUps, self)

@@ -8,3 +8,4 @@ const cMoveLeft = "Move_Left"
 
 #INTERACTION
 const cAction_PushUps = "Action_PushUps"
+const cInteractionMask: int = 4

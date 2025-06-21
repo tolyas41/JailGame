@@ -21,6 +21,8 @@ z_index = -1
 position = Vector2(67, 46)
 
 [node name="I_PushUps" parent="GameCanvasLayer" instance=ExtResource("4_h2e0v")]
+light_mask = 4
+visibility_layer = 4
 z_as_relative = false
 position = Vector2(89, 46)
 

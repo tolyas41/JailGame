@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://lbl3h07hiqx8"]
+[gd_scene load_steps=5 format=3 uid="uid://lbl3h07hiqx8"]
 
 [ext_resource type="Script" uid="uid://bypf4a407t72p" path="res://Logic/Interaction/Actors/I_PushUps.gd" id="1_p4sih"]
-[ext_resource type="Script" uid="uid://cvfiha7lsirk8" path="res://Logic/Interaction/interaction.gd" id="2_or218"]
 [ext_resource type="Texture2D" uid="uid://p6bu66ycup24" path="res://Assets/Textures/Tilesets/4 BigSet.png" id="3_or218"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycpot"]
@@ -11,16 +10,13 @@ size = Vector2(9, 14)
 atlas = ExtResource("3_or218")
 region = Rect2(33.741, 419.647, 14.1211, 10.4051)
 
-[node name="I_PushUps" type="Node2D"]
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
 script = ExtResource("1_p4sih")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-input_pickable = true
-script = ExtResource("2_or218")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_ycpot")
 
@@ -28,7 +24,3 @@ shape = SubResource("RectangleShape2D_ycpot")
 position = Vector2(0, 3)
 rotation = 1.5708
 texture = SubResource("AtlasTexture_yxt11")
-
-[connection signal="interact_on_mouse_enter" from="StaticBody2D" to="Sprite2D" method="set_modulate" binds= [Color(0, 0.52549, 0, 1)]]
-[connection signal="interact_on_mouse_leave" from="StaticBody2D" to="Sprite2D" method="set_modulate" binds= [Color(1, 1, 1, 1)]]
-[connection signal="on_interact" from="StaticBody2D" to="." method="_on_interact"]
